@@ -1,0 +1,27 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+  }
+
+  input{
+    border-radius: 4px;
+    margin:5px;
+    padding-left: 3px;
+    min-height:25px;
+
+  }
+  button{
+    margin-top: 5px;
+    height: fit-content;
+    width: fit-content;
+
+
+  }
