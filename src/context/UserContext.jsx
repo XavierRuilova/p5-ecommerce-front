@@ -30,7 +30,7 @@ export const UserProvider = ({children}) =>{
 
     const createUser = async (dataForm) =>{
         try{
-            const res = await clientAxios.post('http://localhost:4000/users/signup', dataForm)
+            const res = await clientAxios.post('https://p5ecommerce-back.onrender.com/users/signup', dataForm)
             localStorage.setItem('token', res.data.token)
             setAuthStatus(true)
         } catch(error){
@@ -48,7 +48,7 @@ export const UserProvider = ({children}) =>{
         }
     
         try {
-          const res = token && (await clientAxios.get('http://localhost:4000/users/verify'))
+          const res = token && (await clientAxios.get('https://p5ecommerce-back.onrender.com/users/verify'))
           setUser(res.data)
           setAuthStatus(true)
         } catch (error) {
@@ -58,7 +58,7 @@ export const UserProvider = ({children}) =>{
 
       const loginUser = async (dataForm) => {
         try {
-          const res = await clientAxios.post('http://localhost:4000/users/login', dataForm)
+          const res = await clientAxios.post('https://p5ecommerce-back.onrender.com/users/login', dataForm)
           localStorage.setItem('token', res.data.token)
           setAuthStatus(true)
         } catch (error) {
@@ -75,11 +75,11 @@ export const UserProvider = ({children}) =>{
     //       delete clientAxios.defaults.headers.common['x-auth-token']
     //     }
     //     try {
-    //         const res = token && (await clientAxios.get('http://localhost:4000/users/load', ))
+    //         const res = token && (await clientAxios.get('/users/load', ))
     //         setUser(res.data)
     //         setAuthStatus(true)
     //         setFormData(dataForm)
-    //         // const res = await clientAxios.put('http://localhost:4000/users/update', dataForm)
+    //         // const res = await clientAxios.put('/users/update', dataForm)
 
 
     //     }catch (error){

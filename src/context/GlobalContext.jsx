@@ -8,7 +8,7 @@ export const AppProvider = ({ children }) => {
   
     const getProducts = async () => {
       try {
-        const res = await clientAxios.get('http://localhost:4000/products/load')
+        const res = await clientAxios.get('https://p5ecommerce-back.onrender.com/products/load')
         setProducts(res.data.products)
       } catch (error) {
         console.log(error)
