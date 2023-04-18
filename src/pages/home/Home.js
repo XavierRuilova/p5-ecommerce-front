@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./home.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const Home = () => {
   const navigate = useNavigate()
+  const ctx = useContext(UserContext)
+
+  const { logout, authStatus } = ctx
+
   return (
     <>
       <Header />
@@ -16,11 +21,23 @@ const Home = () => {
           <article className="descripciones">
           <p>Tu tienda en línea a solo unos clics de distanca. </p>
           </article>
+          {authStatus ? (
+        <>
+          <div style={{display:'flex', flexDirection:'column'}}>
+            <button onClick= {(e)=>navigate('/store')}>ir a mi tienda</button>
+          </div>
+      </>
+          
+      ) : (
+        <>
           <div style={{display:'flex', flexDirection:'column'}}>
             <button onClick= {(e)=>navigate('/signup')}>Registrarme</button>
             <p>¿Ya tienes cuenta? <Link to='/login'>Iniciar sesión</Link></p>
-
           </div>
+        </>
+
+      )}
+
         </div>
         <div>
           <img
