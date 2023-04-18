@@ -1,0 +1,15 @@
+.slider-container{
+    scroll-snap-type: x mandatory;
+    display:flex;
+    width: 100%;
+    height: 100vh;
+    overflow-x: scroll;
+}
+
+.slider-container div{
+    scroll-snap-align: center;
+    flex: 0 0 100%;
+    width: 100%;
+    object-fit: cover;
+
+}

@@ -1,0 +1,22 @@
+.card{
+    background-color: rgb(30, 32, 66);
+    border: 1px solid black;
+    border-radius: 50px;
+    color: white;
+    text-align: justify;
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .card > img{
+    width: 300px; 
+    height:200px;
+  }
+  

@@ -50,7 +50,7 @@ const Home = () => {
 <div style={{display: 'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
 <section className="articles">
         <article className="descripciones">
-          <h2>¿Quinenes somos?</h2>
+          <h2>¿Quiénes somos?</h2>
           <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
         </article>
       </section>
