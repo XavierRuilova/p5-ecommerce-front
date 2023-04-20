@@ -30,7 +30,7 @@ export const UserProvider = ({children}) =>{
 
     const createUser = async (dataForm) =>{
         try{
-            const res = await clientAxios.post('https://p5ecommerce-back.onrender.com/users/signup', dataForm)
+            const res = await clientAxios.post('/users/signup', dataForm)
             localStorage.setItem('token', res.data.token)
             setAuthStatus(true)
         } catch(error){
@@ -48,7 +48,7 @@ export const UserProvider = ({children}) =>{
         }
     
         try {
-          const res = token && (await clientAxios.get('https://p5ecommerce-back.onrender.com/users/verify'))
+          const res = token && (await clientAxios.get('/users/verify'))
           setUser(res.data)
           setAuthStatus(true)
         } catch (error) {
@@ -58,7 +58,7 @@ export const UserProvider = ({children}) =>{
 
       const loginUser = async (dataForm) => {
         try {
-          const res = await clientAxios.post('https://p5ecommerce-back.onrender.com/users/login', dataForm)
+          const res = await clientAxios.post('/users/login', dataForm)
           localStorage.setItem('token', res.data.token)
           setAuthStatus(true)
         } catch (error) {

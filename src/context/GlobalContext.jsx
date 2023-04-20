@@ -25,7 +25,7 @@ export const AppProvider = ({ children }) => {
 
     const getProducts = async () => {
       try {
-        const res = await clientAxios.get('https://p5ecommerce-back.onrender.com/products/load')
+        const res = await clientAxios.get('/products/load')
         setProducts(res.data.Product)
       } catch (error) {
         console.log(error)
@@ -35,7 +35,7 @@ export const AppProvider = ({ children }) => {
     const createProduct = async (dataForm) => {
 
       try {
-        const res = await clientAxios.post('https://p5ecommerce-back.onrender.com/products/upload', dataForm)
+        const res = await clientAxios.post('/products/upload', dataForm)
         // setSuccess(true)
       } catch (error) {
         console.log(error)
