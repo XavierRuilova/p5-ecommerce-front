@@ -8,7 +8,8 @@ import Footer from '../../components/footer/Footer'
 
 const Login = () => {
   const userCtx = useContext(UserContext)
-  const { loginUser, authStatus, verifyingToken, formData } = userCtx
+  const { loginUser, authStatus, verifyingToken, formData, setUserLocal } = userCtx
+
 
   const navigate = useNavigate()
 
@@ -17,6 +18,7 @@ const Login = () => {
 
     if (authStatus) {
       navigate('/')
+      setUserLocal(localStorage.getItem('username'))
     }
   }, [authStatus])
 

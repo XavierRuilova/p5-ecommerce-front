@@ -10,7 +10,9 @@ const Home = () => {
   const navigate = useNavigate()
   const ctx = useContext(UserContext)
 
-  const { logout, authStatus } = ctx
+  const { authStatus, setUserLocal} = ctx
+
+  setUserLocal(localStorage.getItem('username'))
 
   return (
     <>

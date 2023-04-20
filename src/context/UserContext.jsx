@@ -3,6 +3,7 @@ import clientAxios from "../config/axios";
 export  const UserContext = createContext()
 
 export const UserProvider = ({children}) =>{
+  const [userLocal, setUserLocal] = useState()
     const [user, setUser] = useState({
         username: null, 
         firstname: null, 
@@ -32,6 +33,7 @@ export const UserProvider = ({children}) =>{
         try{
             const res = await clientAxios.post('/users/signup', dataForm)
             localStorage.setItem('token', res.data.token)
+            localStorage.setItem('username', dataForm.firstname)
             setAuthStatus(true)
         } catch(error){
             console.log(error)
@@ -50,6 +52,8 @@ export const UserProvider = ({children}) =>{
         try {
           const res = token && (await clientAxios.get('/users/verify'))
           setUser(res.data)
+          localStorage.setItem('username', res.data.verifiedUser.firstname)
+
           setAuthStatus(true)
         } catch (error) {
           console.log('Error Verificando token', error)
@@ -60,6 +64,8 @@ export const UserProvider = ({children}) =>{
         try {
           const res = await clientAxios.post('/users/login', dataForm)
           localStorage.setItem('token', res.data.token)
+*          localStorage.setItem('username', res.data.firstname)
+
           setAuthStatus(true)
         } catch (error) {
           console.log(error)
@@ -89,6 +95,9 @@ export const UserProvider = ({children}) =>{
 
       const logout = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('username')
+        setUserLocal('')
+
         setUser(null)
         setAuthStatus(false)
       }
@@ -101,7 +110,10 @@ export const UserProvider = ({children}) =>{
         logout, 
         formData, 
         user, 
-        authStatus }
+        authStatus,
+        userLocal, 
+        setUserLocal }
+
       console.log('CONTEXTO USUARIO', data)
       return <UserContext.Provider value={data}>{children}</UserContext.Provider>
 

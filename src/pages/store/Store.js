@@ -18,9 +18,10 @@ const Store = () => {
   const data = ()=>{
     return products.map((item)=>{
       return{
+          idprod: item._id,
           imgurl: item.imgurl,
           productname: item.productname,
-          description: item.description,
+          price: `${item.price} USD`,
       }
   })
   }

@@ -13,13 +13,13 @@ const NewProduct = () => {
   const sendData = (event) => {
     event.preventDefault();
     createProduct(formDataProd);
-    navigate('/store')
+    navigate('/')
   };
 
   return (
     <>
       <Header />
-      <div >
+      <div className="container">
         <h2>Nuevo producto</h2>
 
         <form onSubmit={(e) => {sendData(e)}}>
