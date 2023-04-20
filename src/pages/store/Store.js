@@ -11,14 +11,15 @@ const Store = () => {
   const { getProducts, products } = ctx
   const [prods, setProds] =useState([])
 
-  useEffect(() => {
-    getProducts();
-    setProds(products)
-    console.log(prods)
+  useEffect(async () => {
+    await getProducts();
+    console.log(products)
+    // setProds(products)
+    // console.log(prods)
   }, []);
 
   const data = ()=>{
-    return prods.map((item)=>{
+    return products.map((item)=>{
       return{
           imgurl: item.imgurl,
           productname: item.productname,
@@ -32,7 +33,7 @@ const Store = () => {
       <>
         <Header />
         <section className="slider-container">
-            <CardList list={prods ? data():[]}/>
+            <CardList list={products ? data():[]}/>
         </section>
 
         <Footer />

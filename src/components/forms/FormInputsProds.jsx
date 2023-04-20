@@ -7,11 +7,11 @@ const FormInputsProds = ({tipo}) => {
     const { handleChangeProd, formaDataProd } = AppCtx
   
     const options = {
-      productname: { titulo: 'Nombre del producto', type: 'text' },
-      category: { titulo: 'Categoría', type: 'text' },
-      brand: { titulo: 'Marca', type: 'text' },
-      imgurl: { titulo: 'URL de la imagen', type: 'text' },
-      price: { titulo: 'Precio', type: 'number' },
+      productname: { titulo: 'Nombre del producto', type: 'text', required:true },
+      category: { titulo: 'Categoría', type: 'text', required:true },
+      brand: { titulo: 'Marca', type: 'text', required:false },
+      imgurl: { titulo: 'URL de la imagen', type: 'text', required:true },
+      price: { titulo: 'Precio', type: 'number', required:true },
   
     }
   
@@ -23,7 +23,7 @@ const FormInputsProds = ({tipo}) => {
             id={tipo}
             name={tipo}
             type={options[tipo].type}
-            required
+            required={options[tipo].required}
             onChange={(e)=>{handleChangeProd(e)}}
           />
         </div>

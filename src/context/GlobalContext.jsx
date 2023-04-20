@@ -63,6 +63,19 @@ export const AppProvider = ({ children }) => {
         formDataProd,
 
     }
-    console.log('CONTEXTO', data)
+    console.log('CONTEXTO', 
+    // getProducts,
+    products,
+    setProducts,
+    // error, 
+    // setError, 
+    // newProduct, 
+    // setNewProduct, 
+    // createProduct,
+    // success, 
+    // setSuccess, 
+    // handleChangeProd, 
+    // formDataProd,
+    )
     return <AppContext.Provider value={data}>{children}</AppContext.Provider>
   }

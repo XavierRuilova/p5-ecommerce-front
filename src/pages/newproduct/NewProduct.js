@@ -8,40 +8,7 @@ import Footer from "../../components/footer/Footer";
 
 const NewProduct = () => {
   const appCtx = useContext(AppContext);
-
-  // const { authStatus, createUser, formData } = userCtx
-  const {  createProduct, newProduct, setNewProduct, success, error, setError, setSuccess, formDataProd, handleChangeProd  } = appCtx;
-//   const { authStatus, handleChange } = useContext(UserContext)
-  
-//   const [ok, setOk] = useState(false)
-
-//   const handleChanges = (event) => {
-//     setNewProduct({
-//         ...newProduct,
-//         [event.target.name]: event.target.value,
-//     }
-//     )
-//     console.log(newProduct)
-
-//   }
-
-//   const handleClick = async (event) => {
-//     setError(false)
-//     setSuccess(false)
-//     await handleChange(event)
-//     setOk(true)
-//   }
-
-//   useEffect(() => {
-//     ok && createProduct(newProduct)
-//     setOk(false)
-//   }, [ok])
-
-  // const navigate = useNavigate()
-
-  // useEffect(() => {
-  //   if (authStatus==false) navigate('/')
-  // }, [authStatus])
+  const {  createProduct, formDataProd, handleChangeProd} = appCtx;
 
   const sendData = (event) => {
     event.preventDefault();
