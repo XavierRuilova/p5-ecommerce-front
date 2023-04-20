@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-// import { useNavigate } from 'react-router-dom'
-// import { UserContext } from "../../context/UserContext";
+import React, { useContext} from "react";
+import { useNavigate } from 'react-router-dom'
 import { AppContext } from "../../context/GlobalContext";
 import FormInputsProds from "../../components/forms/FormInputsProds";
 import Header from "../../components/header/Header";
@@ -9,10 +8,12 @@ import Footer from "../../components/footer/Footer";
 const NewProduct = () => {
   const appCtx = useContext(AppContext);
   const {  createProduct, formDataProd, handleChangeProd} = appCtx;
+  const navigate = useNavigate()
 
   const sendData = (event) => {
     event.preventDefault();
     createProduct(formDataProd);
+    navigate('/store')
   };
 
   return (
@@ -21,7 +22,7 @@ const NewProduct = () => {
       <div >
         <h2>Nuevo producto</h2>
 
-        <form onSubmit={(e) => sendData(e)}>
+        <form onSubmit={(e) => {sendData(e)}}>
           <FormInputsProds tipo="productname"/>
           <label htmlFor="category">Categoría</label>
           <br />

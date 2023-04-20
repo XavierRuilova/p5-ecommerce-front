@@ -3,13 +3,7 @@ import clientAxios from '../config/axios'
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-    const [products, setProducts] = useState({
-      productname: null, 
-      category: null, 
-      brand: null, 
-      description: null,
-      price: null,
-    })
+    const [products, setProducts] = useState()
     const [newProduct, setNewProduct] = useState()
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
@@ -22,7 +16,7 @@ export const AppProvider = ({ children }) => {
   })
 
   const handleChangeProd = (event) =>{
-    // event.preventDefault()
+    event.preventDefault()
     setFormDataProd({
         ...formDataProd,
         [event.target.name]: event.target.value,
@@ -61,7 +55,6 @@ export const AppProvider = ({ children }) => {
         setSuccess, 
         handleChangeProd, 
         formDataProd,
-
     }
     console.log('CONTEXTO', 
     // getProducts,

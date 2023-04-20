@@ -11,7 +11,7 @@ const FormInputsProds = ({tipo}) => {
       category: { titulo: 'Categoría', type: 'text', required:true },
       brand: { titulo: 'Marca', type: 'text', required:false },
       imgurl: { titulo: 'URL de la imagen', type: 'text', required:true },
-      price: { titulo: 'Precio', type: 'number', required:true },
+      price: { titulo: 'Precio', type: 'float', required:true },
   
     }
   

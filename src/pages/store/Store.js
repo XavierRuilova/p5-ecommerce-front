@@ -9,13 +9,10 @@ import "./store.css";
 const Store = () => {
     const ctx = useContext(AppContext)
   const { getProducts, products } = ctx
-  const [prods, setProds] =useState([])
 
-  useEffect(async () => {
-    await getProducts();
-    console.log(products)
-    // setProds(products)
-    // console.log(prods)
+  useEffect( () => {
+     getProducts();
+
   }, []);
 
   const data = ()=>{
