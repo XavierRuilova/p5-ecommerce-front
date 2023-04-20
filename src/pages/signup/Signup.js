@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
-import FormInputs from '../../components/FormInputs'
+import FormInputs from '../../components/forms/FormInputs'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import './signup.css'

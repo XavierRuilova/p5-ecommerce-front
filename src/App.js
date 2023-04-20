@@ -7,6 +7,7 @@ import Login from './pages/login/Login';
 import Profile from './pages/Profile/Profile';
 import Store from './pages/store/Store';
 import PrivateRoute from './components/auth/PrivateRoute';
+import NewProduct from './pages/newproduct/NewProduct';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/store' element={<Store/>} />
       <Route path='/profile' element={<Profile/>} />
     </Route>
+    <Route path='/newproduct' element={<NewProduct/>} />
   </Routes>
 
   );

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
+import { UserContext } from '../../context/UserContext'
 
 const FormInputs = ({tipo}) => {
   const userCtx = useContext(UserContext)
@@ -12,6 +12,7 @@ const FormInputs = ({tipo}) => {
     lastname: { titulo: 'Apellido', type: 'text' },
     email: { titulo: 'Direccion de E-Mail', type: 'mail' },
     password: { titulo: 'Contraseña', type: 'password' },
+
   }
 
   return (

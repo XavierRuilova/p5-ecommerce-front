@@ -20,6 +20,7 @@ const Header = () => {
         <>
         <Link to='/'>Inicio</Link>
         <Link to='/store'>Mi tienda</Link>
+        <Link to='/newproduct'>Vender</Link>
         <Link to='/profile'>Mi perfil</Link>
         <Link to='/' onClick={logout}>Cerrar sesión</Link>
       </>
