@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
 import FormInputs from '../../components/forms/FormInputs'
@@ -25,22 +25,20 @@ const Signup = () => {
 
   return (
     <>
-    <Header/>
-    <div className='container'>
-      <h2>Crear cuenta</h2>
+      <div className='container'>
+        <h2>Crear cuenta</h2>
 
-      <form onSubmit={(e) => sendData(e)}>
-        <FormInputs tipo='username' />
-        <FormInputs tipo='firstname' />
-        <FormInputs tipo='lastname' />
-        <FormInputs tipo='email' />
-        <FormInputs tipo='password' />
-        <button type='submit'>Registrarme</button>
-      </form>
-    </div>
-    <Footer/>
+        <form onSubmit={(e) => sendData(e)}>
+          <FormInputs tipo='username' />
+          <FormInputs tipo='firstname' />
+          <FormInputs tipo='lastname' />
+          <FormInputs tipo='email' />
+          <FormInputs tipo='password' />
+          <button type='submit'>Registrarme</button>
+        </form>
+      </div>
     </>
-    
+
   )
 }
 

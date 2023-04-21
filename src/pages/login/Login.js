@@ -31,17 +31,15 @@ const Login = () => {
 
   return (
     <>
-        <Header/>
-        <div className='container'>
-      <h2>Iniciar sesión</h2>
+      <div className='container'>
+        <h2>Iniciar sesión</h2>
 
-      <form onSubmit={(e) => sendData(e)}>
-        <FormInputs tipo='email' />
-        <FormInputs tipo='password' />
-        <button type='submit'>Iniciar sesión</button>
-      </form>
-    </div>
-  <Footer/>
+        <form onSubmit={(e) => sendData(e)}>
+          <FormInputs tipo='email' />
+          <FormInputs tipo='password' />
+          <button type='submit'>Iniciar sesión</button>
+        </form>
+      </div>
     </>
   )
 }

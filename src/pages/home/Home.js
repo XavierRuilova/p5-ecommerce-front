@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./home.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -10,35 +10,34 @@ const Home = () => {
   const navigate = useNavigate()
   const ctx = useContext(UserContext)
 
-  const { authStatus, setUserLocal} = ctx
+  const { authStatus, setUserLocal } = ctx
 
   setUserLocal(localStorage.getItem('username'))
 
   return (
     <>
-      <Header />
       <section className="jumbotron">
         <div>
           <h1>Bienvenido a Mi tienda online</h1>
           <article className="descripciones">
-          <p>Tu tienda en línea a solo unos clics de distanca. </p>
+            <p>Tu tienda en línea a solo unos clics de distanca. </p>
           </article>
           {authStatus ? (
-        <>
-          <div style={{display:'flex', flexDirection:'column'}}>
-            <button onClick= {(e)=>navigate('/store')}>ir a mi tienda</button>
-          </div>
-      </>
-          
-      ) : (
-        <>
-          <div style={{display:'flex', flexDirection:'column'}}>
-            <button onClick= {(e)=>navigate('/signup')}>Registrarme</button>
-            <p>¿Ya tienes cuenta? <Link to='/login'>Iniciar sesión</Link></p>
-          </div>
-        </>
+            <>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <button onClick={(e) => navigate('/store')}>ir a mi tienda</button>
+              </div>
+            </>
 
-      )}
+          ) : (
+            <>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <button onClick={(e) => navigate('/signup')}>Registrarme</button>
+                <p>¿Ya tienes cuenta? <Link to='/login'>Iniciar sesión</Link></p>
+              </div>
+            </>
+
+          )}
 
         </div>
         <div>
@@ -49,31 +48,28 @@ const Home = () => {
         </div>
       </section>
 
-<div style={{display: 'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-<section className="articles">
-        <article className="descripciones">
-          <h2>¿Quiénes somos?</h2>
-          <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
-        </article>
-      </section>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <section className="articles">
+          <article className="descripciones">
+            <h2>¿Quiénes somos?</h2>
+            <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
+          </article>
+        </section>
 
-      <section className="articles">
-        <article className="descripciones" style={{textAlign:'right'}}>
-          <h2>Nuestra misión</h2>
-          <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
-        </article>
-      </section>
+        <section className="articles">
+          <article className="descripciones" style={{ textAlign: 'right' }}>
+            <h2>Nuestra misión</h2>
+            <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
+          </article>
+        </section>
 
-      <section className="articles">
-        <article className="descripciones">
-          <h2>Nuestra visión</h2>
-          <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
-        </article>
-      </section>
-</div>
-     
-
-      <Footer />
+        <section className="articles">
+          <article className="descripciones">
+            <h2>Nuestra visión</h2>
+            <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
+          </article>
+        </section>
+      </div>
     </>
   );
 };

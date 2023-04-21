@@ -27,14 +27,11 @@ const Store = () => {
 
   return (
     <>
-      <Header />
-
       <div style={{ display: "flex" }}>
         <section className="slider-container">
           <CardList list={products ? data() : []} />
         </section>
       </div>
-      <Footer />
     </>
   );
 };

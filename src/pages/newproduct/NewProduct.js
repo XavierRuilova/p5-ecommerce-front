@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from "../../context/GlobalContext";
 import FormInputsProds from "../../components/forms/FormInputsProds";
@@ -7,7 +7,7 @@ import Footer from "../../components/footer/Footer";
 
 const NewProduct = () => {
   const appCtx = useContext(AppContext);
-  const {  createProduct, formDataProd, handleChangeProd} = appCtx;
+  const { createProduct, formDataProd, handleChangeProd } = appCtx;
   const navigate = useNavigate()
 
   const sendData = (event) => {
@@ -18,20 +18,19 @@ const NewProduct = () => {
 
   return (
     <>
-      <Header />
       <div className="container">
         <h2>Nuevo producto</h2>
 
-        <form onSubmit={(e) => {sendData(e)}}>
-          <FormInputsProds tipo="productname"/>
+        <form onSubmit={(e) => { sendData(e) }}>
+          <FormInputsProds tipo="productname" />
           <label htmlFor="category">Categoría</label>
           <br />
           <select
-            style={{ width: "180px", height: "25px", borderRadius: "4px", marginTop:'6px', marginLeft:'6px'}}
+            style={{ width: "180px", height: "25px", borderRadius: "4px", marginTop: '6px', marginLeft: '6px' }}
             name="category"
             id="category"
             required
-            onChange={(e)=>handleChangeProd(e)}
+            onChange={(e) => handleChangeProd(e)}
           >
             <option value="none">---------------------------------------</option>
             <option value="Hogar">Hogar</option>
@@ -40,26 +39,25 @@ const NewProduct = () => {
             <option value="Deporte">Deporte</option>
           </select>
           <br />
-          <FormInputsProds tipo="brand"/>
+          <FormInputsProds tipo="brand" />
           <FormInputsProds tipo="imgurl" />
           <label for="comentarios">Descripción</label>
           <br />
           <textarea
-          style={{marginTop:'6px', marginLeft:'6px'}}
+            style={{ marginTop: '6px', marginLeft: '6px' }}
             id="description"
             name="description"
             rows="25"
             cols="70"
             required
-            onChange={(e)=>handleChangeProd(e)}
+            onChange={(e) => handleChangeProd(e)}
           />
           <br />
-          <FormInputsProds tipo="price"/>
+          <FormInputsProds tipo="price" />
 
           <button type="submit">Crear</button>
         </form>
       </div>
-      <Footer />
     </>
   );
 };

@@ -13,7 +13,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (authStatus==false) navigate("/");
+    if (authStatus == false) navigate("/");
   }, [authStatus]);
 
 
@@ -25,7 +25,6 @@ const Profile = () => {
 
   return (
     <>
-      <Header />
       <div className="container">
         <h2>Mi perfil</h2>
 
@@ -38,7 +37,6 @@ const Profile = () => {
           <button type="submit">actualizar</button>
         </form>
       </div>
-      <Footer />
     </>
   );
 };
