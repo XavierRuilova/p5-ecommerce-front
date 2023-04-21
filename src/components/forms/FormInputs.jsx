@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
+import {UserContext} from '../../context/UserContext'
 
 const FormInputs = ({tipo}) => {
   const userCtx = useContext(UserContext)
