@@ -3,10 +3,10 @@ import './cards.css'
 import { useNavigate } from 'react-router-dom/dist'
 
 const Cards = (props) => {
-  const { idProd, pic, title, price } = props
+  const { idProd, pic, title, price, setter } = props
   const navigate = useNavigate()
   const hadleProduct = () => {
-    navigate(`/store/${idProd}`)
+    setter(idprod)
   }
 
 
