@@ -1,15 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import clientAxios from '../../config/axios'
 
 const ShowProd = () => {
   const [product, setProduct] = useState()
   const { id } = useParams()
+  console.log(id)
 
   useEffect(() => {
     const loadProduct = async () => {
       try {
-        setProduct(await clientAxios.get(`/product/find/${id}`))
+        const auxprod = await clientAxios.get(`/products/find/${id}`)
+        setProduct(auxprod)
+        
+        console.log(auxprod)
       } catch (error) {
         console.log(error)
       }
@@ -18,7 +22,8 @@ const ShowProd = () => {
   }, [id])
 
   return (
-    <>{product &&
+    <>
+{product &&
       <>
         <section style={{ backgroundColor: '#b9c0c7', width: 'fit-content', height: '30%' }}>
           <h2>{product.productname}</h2>
@@ -47,5 +52,7 @@ const ShowProd = () => {
     </>
   )
 }
+
+export default ShowProd
 
 export default ShowProd
