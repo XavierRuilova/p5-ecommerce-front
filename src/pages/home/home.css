@@ -4,10 +4,8 @@
     box-sizing: border-box;
   }
 .jumbotron {
-    /* background-color: #f8f9fa; */
-        background-color: #b9c0c7;
+     background-color: #b9c0c7;
 
-    /* background-size: cover; */
     padding: 2rem;
     border-radius: 0.0;
     height: 100%;
