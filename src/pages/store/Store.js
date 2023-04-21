@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
-// import { Link } from "react-router-dom";
 import { AppContext } from "../../context/GlobalContext";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
 import CardList from "../../components/cardlist/CardList";
 import "./store.css";
 
 const Store = () => {
   const ctx = useContext(AppContext);
   const { getProducts, products } = ctx;
+  const [productid, setProductid] = useState()
+
 
   useEffect(() => {
     getProducts();
@@ -27,11 +26,14 @@ const Store = () => {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <section className="slider-container">
-          <CardList list={products ? data() : []} />
-        </section>
-      </div>
+      <section style={{ display: "flex" }}>
+        <article className="slider-container">
+          <CardList setter={setProductid} list={products ? data() : []} />
+        </article>
+        <article>
+          {productid && <p>{productid}</p>}
+        </article>
+      </section>
     </>
   );
 };
