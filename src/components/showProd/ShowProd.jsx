@@ -54,5 +54,3 @@ const ShowProd = () => {
 }
 
 export default ShowProd
-
-export default ShowProd
