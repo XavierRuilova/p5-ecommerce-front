@@ -72,26 +72,7 @@ export const UserProvider = ({children}) =>{
         }
       }
 
-    //   const updateUser = async (dataForm) => {
-    //     const token = localStorage.getItem('token')
-    
-    //     if (token) {
-    //       clientAxios.defaults.headers.common['x-auth-token'] = token
-    //     } else {
-    //       delete clientAxios.defaults.headers.common['x-auth-token']
-    //     }
-    //     try {
-    //         const res = token && (await clientAxios.get('/users/load', ))
-    //         setUser(res.data)
-    //         setAuthStatus(true)
-    //         setFormData(dataForm)
-    //         // const res = await clientAxios.put('/users/update', dataForm)
 
-
-    //     }catch (error){
-    //         console.log(error)
-    //     }
-    //   }
 
       const logout = () => {
         localStorage.removeItem('token')
@@ -114,7 +95,7 @@ export const UserProvider = ({children}) =>{
         userLocal, 
         setUserLocal }
 
-      console.log('CONTEXTO USUARIO', data)
+      // console.log('CONTEXTO USUARIO', data)
       return <UserContext.Provider value={data}>{children}</UserContext.Provider>
 
 }
