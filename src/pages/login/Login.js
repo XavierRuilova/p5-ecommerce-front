@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
 import FormInputs from '../../components/forms/FormInputs'
 import './login.css'
-import Header from '../../components/header/Header'
-import Footer from '../../components/footer/Footer'
 
 const Login = () => {
   const userCtx = useContext(UserContext)
