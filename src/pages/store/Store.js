@@ -7,10 +7,6 @@ const Store = () => {
   const ctx = useContext(AppContext);
   const { getProducts, products } = ctx;
   const [productid, setProductid] = useState()
-<<<<<<< HEAD
-=======
-
->>>>>>> 46d3a655888e7337bfd8a0b2af22c83ed8f97d7e
 
   useEffect(() => {
     getProducts();
@@ -36,15 +32,10 @@ const Store = () => {
         </article>
         <article>
           {productid && <p>{productid}</p>}
-<<<<<<< HEAD
 
         </article>
       </section>
 
-=======
-        </article>
-      </section>
->>>>>>> 46d3a655888e7337bfd8a0b2af22c83ed8f97d7e
     </>
   );
 };
