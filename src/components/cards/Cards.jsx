@@ -1,12 +1,9 @@
 import React from 'react'
 import './cards.css'
-import { useNavigate } from 'react-router-dom/dist'
 
 const Cards = (props) => {
   const { idprod, pic, title, price, setter } = props
-  const navigate = useNavigate()
   const hadleProduct = () => {
-    // navigate(`/store/${idprod}`)
     setter(idprod)
   }
 
