@@ -3,16 +3,10 @@ import './cards.css'
 import { useNavigate } from 'react-router-dom/dist'
 
 const Cards = (props) => {
-<<<<<<< HEAD
   const { idprod, pic, title, price, setter } = props
   const navigate = useNavigate()
   const hadleProduct = () => {
     // navigate(`/store/${idprod}`)
-=======
-  const { idProd, pic, title, price, setter } = props
-  const navigate = useNavigate()
-  const hadleProduct = () => {
->>>>>>> 46d3a655888e7337bfd8a0b2af22c83ed8f97d7e
     setter(idprod)
   }
 

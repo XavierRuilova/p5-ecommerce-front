@@ -20,10 +20,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<PrivateRoute />}>
           <Route path="/store" element={<Store />}>
-<<<<<<< HEAD
-=======
-            <Route path="/store/:id" element={<ShowProd />} />
->>>>>>> 46d3a655888e7337bfd8a0b2af22c83ed8f97d7e
           </Route>
           <Route path="/store/:id" element={<ShowProd />} />
           <Route path="/profile" element={<Profile />} />
