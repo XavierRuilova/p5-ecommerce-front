@@ -10,7 +10,6 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import NewProduct from "./pages/newproduct/NewProduct";
 import Layout from "./components/Layout";
 import ShowProd from "./components/showProd/ShowProd";
-import Prueba from "./components/Prueba";
 
 function App() {
   return (
