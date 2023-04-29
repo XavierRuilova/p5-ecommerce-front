@@ -16,7 +16,7 @@ const Login = () => {
 
     if (authStatus) {
       navigate('/')
-      setUserLocal(localStorage.getItem('username'))
+      // setUserLocal(localStorage.getItem('username'))
     }
   }, [authStatus])
 

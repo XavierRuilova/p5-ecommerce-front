@@ -8,7 +8,7 @@ import './signup.css'
 const Signup = () => {
   const userCtx = useContext(UserContext)
 
-  const { authStatus, createUser, formData } = userCtx
+  const { authStatus, createUser, formData, logout } = userCtx
 
   const navigate = useNavigate()
 
@@ -19,6 +19,10 @@ const Signup = () => {
   const sendData = (event) => {
     event.preventDefault()
     createUser(formData)
+    logout()
+    navigate('/')
+
+
   }
 
   return (

@@ -32,9 +32,10 @@ export const UserProvider = ({children}) =>{
     const createUser = async (dataForm) =>{
         try{
             const res = await clientAxios.post('/users/signup', dataForm)
-            localStorage.setItem('token', res.data.token)
-            localStorage.setItem('username', dataForm.firstname)
-            setAuthStatus(true)
+            // localStorage.setItem('token', res.data.token)
+            // localStorage.setItem('id', res.data._id)
+            // localStorage.setItem('username', dataForm.firstname)
+            // setAuthStatus(true)
         } catch(error){
             console.log(error)
         }
@@ -53,6 +54,10 @@ export const UserProvider = ({children}) =>{
           const res = token && (await clientAxios.get('/users/verify'))
           setUser(res.data)
           localStorage.setItem('username', res.data.verifiedUser.firstname)
+          localStorage.setItem('id', res.data.verifiedUser._id)
+          // localStorage.setItem('email', res.data.verifiedUser.email)
+
+
 
           setAuthStatus(true)
         } catch (error) {
@@ -64,10 +69,22 @@ export const UserProvider = ({children}) =>{
         try {
           const res = await clientAxios.post('/users/login', dataForm)
           localStorage.setItem('token', res.data.token)
-*          localStorage.setItem('username', res.data.firstname)
-
+          // localStorage.setItem('username', res.data.firstname)
           setAuthStatus(true)
         } catch (error) {
+          console.log(error)
+        }
+      }
+
+      const findUser = async (id) =>{
+        try{
+          const res = await clientAxios.get('/users/find', id)
+          setFormData({
+            username: res.data.username, 
+            firstname: res.data.firstname, 
+            lastname: res.data.lastname, 
+          })
+        }catch (error) {
           console.log(error)
         }
       }
@@ -77,6 +94,8 @@ export const UserProvider = ({children}) =>{
       const logout = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('username')
+        localStorage.removeItem('id')
+
         setUserLocal('')
 
         setUser(null)
@@ -93,9 +112,10 @@ export const UserProvider = ({children}) =>{
         user, 
         authStatus,
         userLocal, 
-        setUserLocal }
+        setUserLocal,
+      findUser }
 
-      // console.log('CONTEXTO USUARIO', data)
+      console.log('CONTEXTO USUARIO', data)
       return <UserContext.Provider value={data}>{children}</UserContext.Provider>
 
 }

@@ -1,56 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import clientAxios from '../../config/axios'
+import React, { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { AppContext } from "../../context/GlobalContext";
+import "./showprod.css";
 
 const ShowProd = () => {
-  const [product, setProduct] = useState()
-  const { id } = useParams()
-  console.log(id)
+  const ctx = useContext(AppContext);
+  const { findProduct, products, showProducts } = ctx;
+  const { id } = useParams();
 
   useEffect(() => {
-    const loadProduct = async () => {
-      try {
-        const auxprod = await clientAxios.get(`/products/find/${id}`)
-        setProduct(auxprod)
-        
-        console.log(auxprod)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    loadProduct()
-  }, [id])
+    findProduct(id);
+    console.log("PRODUCTO", showProducts);
+  }, [id]);
 
   return (
     <>
-{product &&
-      <>
-        <section style={{ backgroundColor: '#b9c0c7', width: 'fit-content', height: '30%' }}>
-          <h2>{product.productname}</h2>
-          <img alt="product_"
-            style={{
-              width: '500px',
-              height: '600px',
-              border: '5px black solid',
-              justifyContent: 'center',
-              alignItems: "center"
-            }}
-            src={product.imgurl} />
-        </section>
-        <section>
-          <h2>Descripcion</h2>
-          <article style={{ textAlign: 'justify' }}>
-            {product.description}
-          </article>
-          <div>
-            Precio: {product.price}
+      {showProducts && (
+        <>
+          <div className="showprod-container">
+            <section className="showprod-box">
+              <h3>{showProducts.productname}</h3>
+              <img
+                className="showprod-image"
+                alt="product_"
+                src={showProducts.imgurl}
+              />
+            </section>
+
+            <section>
+              <h3>Descripción</h3>
+              <article style={{ textAlign: "justify" }}>
+                {showProducts.description}
+              </article>
+              <div>Precio: {showProducts.price}</div>
+            </section>
           </div>
-        </section>
-
-      </>
-    }
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default ShowProd
+export default ShowProd;

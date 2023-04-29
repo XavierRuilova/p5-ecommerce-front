@@ -4,6 +4,7 @@ export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
     const [products, setProducts] = useState()
+    const [showProducts, setShowProducts] = useState()
     const [newProduct, setNewProduct] = useState()
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
@@ -31,7 +32,19 @@ export const AppProvider = ({ children }) => {
         console.log(error)
       }
     }
-  
+
+    const findProduct = async(id)=>{
+      
+      try {
+        const res = await clientAxios.get(`/products/find/${id}`)
+        setShowProducts(res.data.Product)
+        console.log('2',res.data.Product)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+
     const createProduct = async (dataForm) => {
 
       try {
@@ -41,6 +54,8 @@ export const AppProvider = ({ children }) => {
         console.log(error)
       }
     }
+
+
   
     const data = {
         getProducts,
@@ -55,6 +70,8 @@ export const AppProvider = ({ children }) => {
         setSuccess, 
         handleChangeProd, 
         formDataProd,
+        findProduct,
+        showProducts,
     }
     // console.log('CONTEXTO', 
     // // getProducts,

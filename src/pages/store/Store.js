@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AppContext } from "../../context/GlobalContext";
 import CardList from "../../components/cardlist/CardList";
+import { Outlet } from "react-router-dom";
 import "./store.css";
 
 const Store = () => {
   const ctx = useContext(AppContext);
-  const { getProducts, products } = ctx;
+  const { getProducts, products, setProducts, showProducts } = ctx;
   const [productid, setProductid] = useState()
 
   useEffect(() => {
@@ -18,6 +19,7 @@ const Store = () => {
       return {
         idprod: item._id,
         imgurl: item.imgurl,
+        description: item.description,
         productname: item.productname,
         price: `${item.price} USD`,
       };
@@ -28,12 +30,14 @@ const Store = () => {
     <>
       <section style={{ display: "flex" }}>
         <article className="slider-container">
-          <CardList setter={setProductid} list={products ? data() : []} />
+          <CardList list={products ? data() : []} />
         </article>
-        <article>
-          {productid && <p>{productid}</p>}
+        {/* <article>
+          {productid && productid}
 
-        </article>
+        </article> */}
+        <Outlet/>
+
       </section>
 
     </>

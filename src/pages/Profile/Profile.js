@@ -6,11 +6,12 @@ import "./profile.css";
 const Profile = () => {
   const userCtx = useContext(UserContext);
 
-  const { authStatus, verifyingToken, updateUser, formData } = userCtx;
+  const { authStatus, verifyingToken, updateUser, formData, findUser } = userCtx;
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    // verifyingToken()
     if (authStatus == false) navigate("/");
   }, [authStatus]);
 
@@ -20,6 +21,11 @@ const Profile = () => {
     verifyingToken()
     updateUser(formData);
   };
+  const idUser = localStorage.getItem('id')
+findUser(idUser)
+console.log(formData)
+
+
 
   return (
     <>
