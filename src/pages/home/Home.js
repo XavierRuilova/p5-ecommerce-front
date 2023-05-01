@@ -50,21 +50,21 @@ const Home = () => {
         <section className="articles">
           <article className="descripciones">
             <h2>¿Quiénes somos?</h2>
-            <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
+            <p>Somos tu tienda en línea. Estamos a solo unos clics de distancia de la comodidad de tu hogar ofreciéndote una amplia variedad de productos y a futuro servicios. Esperamos poder ayudar en todo lo posible para que puedas conseguir los productos que deseas y de la mejor calidad.</p>
           </article>
         </section>
 
         <section className="articles">
           <article className="descripciones" style={{ textAlign: 'right' }}>
             <h2>Nuestra misión</h2>
-            <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
+            <p>Ofrecer productos de calidad nacionales e importados garantizando la confianza de los consumidores al recibir un producto de calidad. </p>
           </article>
         </section>
 
         <section className="articles">
           <article className="descripciones">
             <h2>Nuestra visión</h2>
-            <p>Aliquip fugiat sunt quis sunt exercitation do dolore duis nulla tempor cupidatat. Non laborum ad magna Lorem occaecat pariatur consequat deserunt nulla reprehenderit nostrud. Elit commodo deserunt labore adipisicing ea officia velit in deserunt deserunt elit eu.</p>
+            <p>Liderar los mercados en línea a nivel nacional e internacional siendo prioridad para los mercaderes que deseen ofertar sus productos en la red.</p>
           </article>
         </section>
       </div>
