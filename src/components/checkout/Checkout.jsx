@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import "./checkout.css";
 import ListItems from "../listItems/ListItems";
+import PaypalButton from "../paypalbutton/PaypalButton";
 
 const Checkout = () => {
   const ctx = useContext(UserContext);
@@ -51,7 +52,9 @@ const Checkout = () => {
 
         <section className="sum">
           <h2>Total a pagar:</h2>
-          <h3>{total+'usd'}</h3>
+          <p style={{textAlign: 'right', fontSize:'large'}}>{total} <span style={{fontWeight:"bold"}}>usd</span></p>
+          {total>0?(<PaypalButton value={total}/>):<></>}
+
         </section>
       </div>
     </div>
