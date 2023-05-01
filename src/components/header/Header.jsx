@@ -7,7 +7,7 @@ import { UserContext } from "../../context/UserContext";
 const Header = () => {
   const ctx = useContext(UserContext);
 
-  const { itemNumber, ItemsCounter, logout, authStatus, verifyingToken, currentUser } = ctx;
+  const { itemNumber, ItemsCounter, logout, authStatus, currentUser } = ctx;
   useEffect(()=>{
     ItemsCounter()
   },[itemNumber])
@@ -25,7 +25,7 @@ const Header = () => {
       {authStatus ? (
         <div className="linksOnline">
           <Link
-            to="/profile"
+            to={`/profile`}
             style={{ textDecoration: "none", color: "black" }}
           >
             <span>{`Perfil de ${currentUser}`}</span>

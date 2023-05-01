@@ -3,3 +3,15 @@
     padding: 0px;
     box-sizing: border-box;
   }
+  .container-profile{
+    width: 500px;
+    height: fit-content;
+    background-color: #b9c0c7;
+    border: 3px solid black;
+    align-items: center;
+    justify-content: center;
+    padding:30px;
+    text-align: center;
+    margin: 30px;
+
+  }

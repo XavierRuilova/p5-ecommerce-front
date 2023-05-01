@@ -14,11 +14,10 @@ const Login = () => {
 
     if (authStatus) {
       navigate('/')
-      // setUserLocal(localStorage.getItem('username'))
     }
   }, [authStatus])
 
-  if (authStatus) return null //REVISAR Q HACE
+  if (authStatus) return null
 
   const sendData = (event) => {
     event.preventDefault()

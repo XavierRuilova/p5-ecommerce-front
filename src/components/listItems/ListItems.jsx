@@ -1,13 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import "./listitems.css";
-import { useNavigate } from "react-router-dom";
 import AddItem from "../additem/AddItem";
 
 const ListItems = ({ list }) => {
   const ctx = useContext(UserContext);
   const { itemNumber } = ctx;
-  const navigate = useNavigate();
 
 
   if (itemNumber>0) { 

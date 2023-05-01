@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 
 const Cards = (props) => {
   const { idprod, pic, title, price } = props;
-  // const hadleProduct = () => {
-  //   setter(idprod)
-  // }
+
 
   return (
     <div className="cards">

@@ -1,42 +1,42 @@
-import React, { useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
-import FormInputs from "../../components/forms/FormInputs";
+
 import "./profile.css";
 const Profile = () => {
-  const userCtx = useContext(UserContext);
-
-  const { authStatus, verifyingToken, formData, findUser } = userCtx;
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // verifyingToken()
-    if (authStatus == false) navigate("/");
-  }, [authStatus]);
-
-  const sendData = (event) => {
-    event.preventDefault();
-    verifyingToken();
-    // updateUser(formData);
-  };
-  const idUser = localStorage.getItem("id");
-  findUser(idUser);
-  // console.log(formData);
 
   return (
     <>
-      <div className="container">
+      <div className="container-profile">
         <h2>Mi perfil</h2>
+        <table>
+          <thead>
+            <th>{}</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><h4>Usuario:</h4></td>
+              <td>{localStorage.getItem('usr')}</td>
+            </tr>
 
-        <form onSubmit={(e) => sendData(e)}>
-          <FormInputs tipo="username" />
-          <FormInputs tipo="firstname" />
-          <FormInputs tipo="lastname" />
-          <FormInputs tipo="email" />
-          <FormInputs tipo="password" />
-          <button type="submit">actualizar</button>
-        </form>
+          
+            <tr>
+              <td><h4>Nombre:</h4></td>
+              <td>{localStorage.getItem('username')}</td>
+            </tr>
+
+            <tr>
+              <td><h4>Apellido:</h4></td>
+              <td>{localStorage.getItem('lastname')}</td>
+            </tr>
+            
+            
+            <tr>
+              <td><h4>Email:</h4></td>
+              <td>{localStorage.getItem('email')}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
       </div>
     </>
   );

@@ -6,7 +6,7 @@ export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [authStatus, setAuthStatus] = useState(false);
   const [itemNumber, setItemNumber] = useState();
-  // let [itemCart, setItemCart] = useState()
+  const [foundUser, setFoundUser] = useState()
 
   const [user, setUser] = useState({
     username: null,
@@ -35,10 +35,6 @@ export const UserProvider = ({ children }) => {
   const createUser = async (dataForm) => {
     try {
       const res = await clientAxios.post("/users/signup", dataForm);
-      // localStorage.setItem('token', res.data.token)
-      // localStorage.setItem('id', res.data._id)
-      // localStorage.setItem('username', dataForm.firstname)
-      // setAuthStatus(true)
     } catch (error) {
       console.log(error);
     }
@@ -58,6 +54,13 @@ export const UserProvider = ({ children }) => {
       setUser(res.data);
       localStorage.setItem("username", res.data.verifiedUser.firstname);
       localStorage.setItem("id", res.data.verifiedUser._id);
+      localStorage.setItem("usr", res.data.verifiedUser.username);
+      localStorage.setItem("lastname", res.data.verifiedUser.lastname);
+      localStorage.setItem("email", res.data.verifiedUser.email);
+
+
+
+
       setAuthStatus(true);
     } catch (error) {
       console.log("Error Verificando token", error);
@@ -76,12 +79,8 @@ export const UserProvider = ({ children }) => {
 
   const findUser = async (id) => {
     try {
-      const res = await clientAxios.get("/users/find", id);
-      setFormData({
-        username: res.data.username,
-        firstname: res.data.firstname,
-        lastname: res.data.lastname,
-      });
+      const res = await clientAxios.post(`/users/find`, id);
+      setFoundUser(res.data.gotUser)
     } catch (error) {
       console.log(error);
     }
@@ -92,6 +91,11 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("username");
     localStorage.removeItem("id");
     localStorage.removeItem("cart");
+    localStorage.removeItem("usr");
+    localStorage.removeItem("lastname");
+    localStorage.removeItem("email");
+    localStorage.removeItem("__paypal_storage__");
+
     setCurrentUser("");
     setUser(null);
     setAuthStatus(false);
@@ -109,7 +113,6 @@ export const UserProvider = ({ children }) => {
 
   const removeItem = (ind) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
-    console.log("ITEM", cart);
     cart.splice(ind, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     ItemsCounter();
@@ -124,9 +127,8 @@ export const UserProvider = ({ children }) => {
     authStatus,
     itemNumber,
     setItemNumber,
-    // itemCart,
-    // setItemCart,
     user,
+    foundUser,
     formData,
     handleChange,
     verifyingToken,
@@ -137,6 +139,5 @@ export const UserProvider = ({ children }) => {
     removeItem,
   };
 
-  // console.log('CONTEXTO USUARIO', data)
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
 };

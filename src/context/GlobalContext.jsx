@@ -44,7 +44,6 @@ export const AppProvider = ({ children }) => {
   const createProduct = async (dataForm) => {
     try {
       const res = await clientAxios.post("/products/upload", dataForm);
-      // setSuccess(true)
     } catch (error) {
       console.log(error);
     }
@@ -64,6 +63,5 @@ export const AppProvider = ({ children }) => {
     findProduct,
     createProduct,
   };
-  // console.log('CONTEXTO', data)
   return <AppContext.Provider value={data}>{children}</AppContext.Provider>;
 };

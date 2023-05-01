@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AppContext } from "../../context/GlobalContext";
 import { UserContext } from "../../context/UserContext";
@@ -11,10 +11,6 @@ const ShowProd = () => {
   const { findProduct, products, showProducts } = ctx;
   const { 
     ItemsCounter,
-    // setItems, 
-    // items, 
-    // itemCart, 
-    // setItemCart 
   } = uctx;
   const numb = document.getElementById("number-buy");
   let itemCart = JSON.parse(localStorage.getItem("cart"));
@@ -23,7 +19,6 @@ const ShowProd = () => {
 
   useEffect(() => {
     findProduct(id);
-    console.log("PRODUCTO", showProducts);
   }, [id]);
 
   const addCart = (value) => {
@@ -46,7 +41,6 @@ const ShowProd = () => {
       });
     }
     localStorage.setItem("cart", JSON.stringify(itemCart));
-    console.log("carro", itemCart);
     value.value = 1;
     itemCart= JSON.parse(localStorage.getItem("cart")).length
     ItemsCounter()

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { AppContext } from "../../context/GlobalContext";
 import CardList from "../../components/cardlist/CardList";
 import { Outlet } from "react-router-dom";
@@ -6,8 +6,7 @@ import "./store.css";
 
 const Store = () => {
   const ctx = useContext(AppContext);
-  const { getProducts, products, setProducts, showProducts } = ctx;
-  const [productid, setProductid] = useState()
+  const { getProducts, products, } = ctx;
 
   useEffect(() => {
     getProducts();
