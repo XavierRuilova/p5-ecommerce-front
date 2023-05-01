@@ -9,13 +9,12 @@ const ListItems = ({ list }) => {
   const { itemNumber } = ctx;
   const navigate = useNavigate();
 
-  // useEffect(()=>{
-  // navigate('/checkout')
-  // },[]);
-  if (itemNumber>0) {
+
+  if (itemNumber>0) { 
     return list.map((item, i) => {
       if (list.length > 0) {
         return (
+          
           <AddItem
             key={i}
             position={i}

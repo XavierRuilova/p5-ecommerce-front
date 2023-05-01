@@ -9,19 +9,17 @@ const Checkout = () => {
   const { itemNumber } = ctx;
 
   let itemCart = JSON.parse(localStorage.getItem("cart"));
- let list = itemCart.map((e,i)=>{return e.price})
+ let list = itemCart? (itemCart.map((e,i)=>{return e.price})):[]
  console.log('lista', list)
  let total = 0
- list.forEach(e=>{
-  total += parseFloat(e)
- })
+ list?(list.forEach(e=>{total += parseFloat(e)})):[]
 
 
   return (
     <div style={{ margin: "30px" }}>
       <h2>Listado de pedidos:</h2>
-
-      <div className="chkt">
+{itemNumber>0 || itemNumber==null?(
+  <div className="chkt">
         <div className="list-cont">
           <table className="list-table">
             <thead>
@@ -45,7 +43,7 @@ const Checkout = () => {
               </tr>
             </thead>
             <tbody className="table-body">
-              {itemNumber > 0 ? <ListItems list={itemCart} /> : <></>}
+              {itemCart? <ListItems list={itemCart} /> : <></>}
             </tbody>
           </table>
         </div>
@@ -57,6 +55,8 @@ const Checkout = () => {
 
         </section>
       </div>
+):(<></>)}
+      
     </div>
   );
 };
