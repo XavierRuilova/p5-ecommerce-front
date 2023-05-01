@@ -3,7 +3,6 @@ import {UserContext} from '../../context/UserContext'
 
 const FormInputs = ({tipo}) => {
   const userCtx = useContext(UserContext)
-
   const { handleChange } = userCtx
 
   const options = {

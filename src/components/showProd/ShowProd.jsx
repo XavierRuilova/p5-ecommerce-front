@@ -1,11 +1,24 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AppContext } from "../../context/GlobalContext";
+import { UserContext } from "../../context/UserContext";
 import "./showprod.css";
+import Icons from "../svg/Icons";
 
 const ShowProd = () => {
   const ctx = useContext(AppContext);
+  const uctx = useContext(UserContext);
   const { findProduct, products, showProducts } = ctx;
+  const { 
+    ItemsCounter,
+    // setItems, 
+    // items, 
+    // itemCart, 
+    // setItemCart 
+  } = uctx;
+  const numb = document.getElementById("number-buy");
+  let itemCart = JSON.parse(localStorage.getItem("cart"));
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -13,26 +26,73 @@ const ShowProd = () => {
     console.log("PRODUCTO", showProducts);
   }, [id]);
 
+  const addCart = (value) => {
+    if (itemCart === null) {
+      itemCart = [];
+      itemCart.push({
+        productid: showProducts._id,
+        image: showProducts.imgurl,
+        prod: showProducts.productname,
+        cant: value.value,
+        price: showProducts.price,
+      });
+    } else {
+      itemCart.push({
+        productid: showProducts._id,
+        image: showProducts.imgurl,
+        prod: showProducts.productname,
+        cant: value.value,
+        price: showProducts.price,
+      });
+    }
+    localStorage.setItem("cart", JSON.stringify(itemCart));
+    console.log("carro", itemCart);
+    value.value = 1;
+    itemCart= JSON.parse(localStorage.getItem("cart")).length
+    ItemsCounter()
+
+  };
   return (
     <>
       {showProducts && (
         <>
           <div className="showprod-container">
             <section className="showprod-box">
-              <h3>{showProducts.productname}</h3>
-              <img
-                className="showprod-image"
-                alt="product_"
-                src={showProducts.imgurl}
-              />
+              <div>
+                <h2>{showProducts.productname}</h2>
+                <img alt="product_" src={showProducts.imgurl} />
+              </div>
+              <article className="price">
+                <h2>Precio: {`${showProducts.price}usd`}</h2>
+                <div>
+                  <h3>Pedido:</h3>
+                  <div>
+                    <span>Cantidad:</span>
+                    <input
+                      style={{ width: "40px" }}
+                      type="number"
+                      id="number-buy"
+                      name="number"
+                      min="1"
+                      defaultValue={1}
+                    />
+                  </div>
+                  <button
+                    onClick={() => {
+                      addCart(numb);
+                    }}
+                  >
+                    <Icons icon={"cart"} />
+                  </button>
+                </div>
+              </article>
             </section>
 
-            <section>
+            <section className="showprod-container-two">
               <h3>Descripción</h3>
-              <article style={{ textAlign: "justify" }}>
-                {showProducts.description}
+              <article>
+                <p>{showProducts.description}</p>
               </article>
-              <div>Precio: {showProducts.price}</div>
             </section>
           </div>
         </>

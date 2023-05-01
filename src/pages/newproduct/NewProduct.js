@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from "../../context/GlobalContext";
 import FormInputsProds from "../../components/forms/FormInputsProds";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+
 
 const NewProduct = () => {
   const appCtx = useContext(AppContext);

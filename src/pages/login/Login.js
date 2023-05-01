@@ -6,9 +6,7 @@ import './login.css'
 
 const Login = () => {
   const userCtx = useContext(UserContext)
-  const { loginUser, authStatus, verifyingToken, formData, setUserLocal } = userCtx
-
-
+  const { loginUser, authStatus, verifyingToken, formData, setCurrentUser } = userCtx
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -20,7 +18,7 @@ const Login = () => {
     }
   }, [authStatus])
 
-  if (authStatus) return null
+  if (authStatus) return null //REVISAR Q HACE
 
   const sendData = (event) => {
     event.preventDefault()

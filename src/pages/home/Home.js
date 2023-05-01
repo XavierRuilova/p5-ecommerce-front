@@ -8,9 +8,9 @@ const Home = () => {
   const navigate = useNavigate()
   const ctx = useContext(UserContext)
 
-  const { authStatus, setUserLocal } = ctx
+  const { authStatus, setCurrentUser } = ctx
 
-  setUserLocal(localStorage.getItem('username'))
+  setCurrentUser(localStorage.getItem('username'))
 
   return (
     <>

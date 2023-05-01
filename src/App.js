@@ -10,6 +10,7 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import NewProduct from "./pages/newproduct/NewProduct";
 import Layout from "./components/Layout";
 import ShowProd from "./components/showProd/ShowProd";
+import Checkout from "./components/checkout/Checkout";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/newproduct" element={<NewProduct />} />
         <Route element={<PrivateRoute />}>
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/store" element={<Store />}>
             <Route path=":id" element={<ShowProd />} />

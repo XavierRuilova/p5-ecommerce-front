@@ -6,7 +6,7 @@ import "./profile.css";
 const Profile = () => {
   const userCtx = useContext(UserContext);
 
-  const { authStatus, verifyingToken, updateUser, formData, findUser } = userCtx;
+  const { authStatus, verifyingToken, formData, findUser } = userCtx;
 
   const navigate = useNavigate();
 
@@ -15,17 +15,14 @@ const Profile = () => {
     if (authStatus == false) navigate("/");
   }, [authStatus]);
 
-
   const sendData = (event) => {
     event.preventDefault();
-    verifyingToken()
-    updateUser(formData);
+    verifyingToken();
+    // updateUser(formData);
   };
-  const idUser = localStorage.getItem('id')
-findUser(idUser)
-console.log(formData)
-
-
+  const idUser = localStorage.getItem("id");
+  findUser(idUser);
+  // console.log(formData);
 
   return (
     <>

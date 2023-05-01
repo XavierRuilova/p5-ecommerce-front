@@ -21,21 +21,17 @@ const Store = () => {
         imgurl: item.imgurl,
         description: item.description,
         productname: item.productname,
-        price: `${item.price} USD`,
+        price: ` ${item.price}usd`,
       };
     });
   };
 
   return (
     <>
-      <section style={{ display: "flex" }}>
+      <section className="general">
         <article className="slider-container">
           <CardList list={products ? data() : []} />
         </article>
-        {/* <article>
-          {productid && productid}
-
-        </article> */}
         <Outlet/>
 
       </section>
