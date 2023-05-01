@@ -7,7 +7,10 @@ import { UserContext } from "../../context/UserContext";
 const Header = () => {
   const ctx = useContext(UserContext);
 
-  const { ItemsCounter, logout, authStatus, verifyingToken, currentUser } = ctx;
+  const { itemNumber, ItemsCounter, logout, authStatus, verifyingToken, currentUser } = ctx;
+  useEffect(()=>{
+    ItemsCounter()
+  },[itemNumber])
 
   return (
     <header>

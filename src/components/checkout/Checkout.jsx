@@ -1,42 +1,58 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import "./checkout.css";
 import ListItems from "../listItems/ListItems";
 
 const Checkout = () => {
-    const ctx = useContext(UserContext)
-    // const {itemCart, setItemCart}=ctx
+  const ctx = useContext(UserContext);
+  const { itemNumber } = ctx;
 
-    let itemCart = JSON.parse(localStorage.getItem("cart"))
+  let itemCart = JSON.parse(localStorage.getItem("cart"));
+ let list = itemCart.map((e,i)=>{return e.price})
+ console.log('lista', list)
+ let total = 0
+ list.forEach(e=>{
+  total += parseFloat(e)
+ })
+
+
   return (
-    <div className="chkt">
+    <div style={{ margin: "30px" }}>
       <h2>Listado de pedidos:</h2>
-      <div className="list-cont">
-        <table className="list-table">
-          <thead>
-            <tr>
-              <th>
-                <h5>Imagen</h5>
-              </th>
-              <th>
-                <h5>Cant.</h5>
-              </th>
-              <th>
-                <h5>Producto</h5>
-              </th>
-              <th>
-                <h5>P. Unit</h5>
-              </th>
-              <th>
-                <h5>Total</h5>
-              </th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody className="table-body">
-            <ListItems list={itemCart} />
-          </tbody>
-        </table>
+
+      <div className="chkt">
+        <div className="list-cont">
+          <table className="list-table">
+            <thead>
+              <tr>
+                <th>
+                  <h5>Imagen</h5>
+                </th>
+                <th>
+                  <h5>Cant.</h5>
+                </th>
+                <th>
+                  <h5>Producto</h5>
+                </th>
+                <th>
+                  <h5>P. Unit</h5>
+                </th>
+                <th>
+                  <h5>Total</h5>
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody className="table-body">
+              {itemNumber > 0 ? <ListItems list={itemCart} /> : <></>}
+            </tbody>
+          </table>
+        </div>
+
+        <section className="sum">
+          <h2>Total a pagar:</h2>
+          <h3>{total+'usd'}</h3>
+        </section>
       </div>
     </div>
   );

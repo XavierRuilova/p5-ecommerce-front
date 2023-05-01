@@ -111,9 +111,10 @@ export const UserProvider = ({ children }) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     console.log("ITEM", cart);
     cart.splice(ind, 1);
-
     localStorage.setItem("cart", JSON.stringify(cart));
     ItemsCounter();
+
+
   };
 
   const data = {
